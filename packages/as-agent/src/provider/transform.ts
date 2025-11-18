@@ -153,7 +153,7 @@ export namespace ProviderTransform {
         result["textVerbosity"] = "low"
       }
 
-      if (providerID === "opencode") {
+      if (providerID === "as-agent") {
         result["promptCacheKey"] = sessionID
         result["include"] = ["reasoning.encrypted_content"]
         result["reasoningSummary"] = "auto"

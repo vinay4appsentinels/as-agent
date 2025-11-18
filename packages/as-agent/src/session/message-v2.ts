@@ -509,8 +509,8 @@ export namespace MessageV2 {
         },
         agent: "build",
         model: {
-          providerID: "opencode",
-          modelID: "opencode",
+          providerID: "as-agent",
+          modelID: "as-agent",
         },
       }
       const parts = v1.parts.flatMap((part): Part[] => {

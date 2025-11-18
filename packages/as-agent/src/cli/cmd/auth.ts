@@ -70,7 +70,7 @@ export const AuthLoginCommand = cmd({
   describe: "log in to a provider",
   builder: (yargs) =>
     yargs.positional("url", {
-      describe: "opencode auth provider",
+      describe: "as-agent auth provider",
       type: "string",
     }),
   async handler(args) {
@@ -300,7 +300,7 @@ export const AuthLoginCommand = cmd({
           return
         }
 
-        if (provider === "opencode") {
+        if (provider === "as-agent") {
           prompts.log.info("Create an api key at https://opencode.ai/auth")
         }
 

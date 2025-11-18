@@ -5,7 +5,7 @@ import { $ } from "bun"
 
 export const PrCommand = cmd({
   command: "pr <number>",
-  describe: "fetch and checkout a GitHub PR branch, then run opencode",
+  describe: "fetch and checkout a GitHub PR branch, then run as-agent",
   builder: (yargs) =>
     yargs.positional("number", {
       type: "number",
@@ -94,7 +94,7 @@ export const PrCommand = cmd({
         // Launch opencode TUI with session ID if available
         const { spawn } = await import("child_process")
         const opencodeArgs = sessionId ? ["-s", sessionId] : []
-        const opencodeProcess = spawn("opencode", opencodeArgs, {
+        const opencodeProcess = spawn("as-agent", opencodeArgs, {
           stdio: "inherit",
           cwd: process.cwd(),
         })

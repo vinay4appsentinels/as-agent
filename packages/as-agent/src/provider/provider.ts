@@ -175,7 +175,7 @@ export namespace Provider {
         options: {
           headers: {
             "HTTP-Referer": "https://opencode.ai/",
-            "X-Title": "opencode",
+            "X-Title": "as-agent",
           },
         },
       }
@@ -186,7 +186,7 @@ export namespace Provider {
         options: {
           headers: {
             "http-referer": "https://opencode.ai/",
-            "x-title": "opencode",
+            "x-title": "as-agent",
           },
         },
       }
@@ -231,7 +231,7 @@ export namespace Provider {
         options: {
           headers: {
             "HTTP-Referer": "https://opencode.ai/",
-            "X-Title": "opencode",
+            "X-Title": "as-agent",
           },
         },
       }
@@ -617,7 +617,7 @@ export namespace Provider {
     if (providerID === "github-copilot") {
       priority = priority.filter((m) => m !== "claude-haiku-4.5")
     }
-    if (providerID === "opencode" || providerID === "local") {
+    if (providerID === "as-agent" || providerID === "local") {
       priority = ["gpt-5-nano"]
     }
     for (const item of priority) {

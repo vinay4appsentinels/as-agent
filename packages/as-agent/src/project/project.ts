@@ -42,7 +42,7 @@ export namespace Project {
     }
     let worktree = path.dirname(git)
     const timer = log.time("git.rev-parse")
-    let id = await Bun.file(path.join(git, "opencode"))
+    let id = await Bun.file(path.join(git, "as-agent"))
       .text()
       .then((x) => x.trim())
       .catch(() => {})
@@ -60,7 +60,7 @@ export namespace Project {
             .toSorted(),
         )
       id = roots[0]
-      if (id) Bun.file(path.join(git, "opencode")).write(id)
+      if (id) Bun.file(path.join(git, "as-agent")).write(id)
     }
     timer.stop()
     if (!id) {

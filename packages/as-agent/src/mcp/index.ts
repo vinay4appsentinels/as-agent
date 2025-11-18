@@ -147,7 +147,7 @@ export namespace MCP {
       let lastError: Error | undefined
       for (const { name, transport } of transports) {
         const result = await experimental_createMCPClient({
-          name: "opencode",
+          name: "as-agent",
           transport,
         })
           .then((client) => {
@@ -177,14 +177,14 @@ export namespace MCP {
     if (mcp.type === "local") {
       const [cmd, ...args] = mcp.command
       await experimental_createMCPClient({
-        name: "opencode",
+        name: "as-agent",
         transport: new StdioClientTransport({
           stderr: "ignore",
           command: cmd,
           args,
           env: {
             ...process.env,
-            ...(cmd === "opencode" ? { BUN_BE_BUN: "1" } : {}),
+            ...(cmd === "as-agent" ? { BUN_BE_BUN: "1" } : {}),
             ...mcp.environment,
           },
         }),

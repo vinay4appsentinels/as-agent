@@ -338,7 +338,7 @@ export namespace ACP {
       log.info("initialize", { protocolVersion: params.protocolVersion })
 
       const authMethod: AuthMethod = {
-        description: "Run `opencode auth login` in the terminal",
+        description: "Run `as-agent auth login` in the terminal",
         name: "Login with opencode",
         id: "opencode-login",
       }
@@ -347,7 +347,7 @@ export namespace ACP {
       if (params.clientCapabilities?._meta?.["terminal-auth"] === true) {
         authMethod._meta = {
           "terminal-auth": {
-            command: "opencode",
+            command: "as-agent",
             args: ["auth", "login"],
             label: "OpenCode Login",
           },
@@ -781,7 +781,7 @@ export namespace ACP {
         return undefined
       })
 
-    return model ?? { providerID: "opencode", modelID: "big-pickle" }
+    return model ?? { providerID: "as-agent", modelID: "big-pickle" }
   }
 
   function parseUri(

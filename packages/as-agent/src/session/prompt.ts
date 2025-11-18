@@ -522,7 +522,7 @@ export namespace SessionPrompt {
             }
           },
           headers: {
-            ...(model.providerID === "opencode"
+            ...(model.providerID === "as-agent"
               ? {
                   "x-opencode-session": sessionID,
                   "x-opencode-request": lastUser.id,

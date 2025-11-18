@@ -39,7 +39,7 @@ process.on("uncaughtException", (e) => {
 })
 
 const cli = yargs(hideBin(process.argv))
-  .scriptName("opencode")
+  .scriptName("as-agent")
   .help("help", "show help")
   .alias("help", "h")
   .version("version", "show version number", Installation.VERSION)
@@ -65,9 +65,9 @@ const cli = yargs(hideBin(process.argv))
     })
 
     process.env.AGENT = "1"
-    process.env.OPENCODE = "1"
+    process.env.ASAGENT = "1"
 
-    Log.Default.info("opencode", {
+    Log.Default.info("as-agent", {
       version: Installation.VERSION,
       args: process.argv.slice(2),
     })

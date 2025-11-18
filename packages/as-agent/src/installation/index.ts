@@ -87,7 +87,7 @@ export namespace Installation {
 
     for (const check of checks) {
       const output = await check.command()
-      if (output.includes(check.name === "brew" ? "opencode" : "opencode-ai")) {
+      if (output.includes(check.name === "brew" ? "as-agent" : "opencode-ai")) {
         return check.name
       }
     }
@@ -104,10 +104,10 @@ export namespace Installation {
 
   async function getBrewFormula() {
     const tapFormula = await $`brew list --formula sst/tap/opencode`.throws(false).text()
-    if (tapFormula.includes("opencode")) return "sst/tap/opencode"
+    if (tapFormula.includes("as-agent")) return "sst/tap/opencode"
     const coreFormula = await $`brew list --formula opencode`.throws(false).text()
-    if (coreFormula.includes("opencode")) return "opencode"
-    return "opencode"
+    if (coreFormula.includes("as-agent")) return "as-agent"
+    return "as-agent"
   }
 
   export async function upgrade(method: Method, target: string) {
