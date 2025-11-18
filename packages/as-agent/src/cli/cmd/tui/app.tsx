@@ -441,9 +441,9 @@ function App() {
       >
         <box flexDirection="row">
           <box flexDirection="row" backgroundColor={theme.backgroundElement} paddingLeft={1} paddingRight={1}>
-            <text fg={theme.textMuted}>open</text>
+            <text fg={theme.textMuted}>as-</text>
             <text fg={theme.text} attributes={TextAttributes.BOLD}>
-              code{" "}
+              agent{" "}
             </text>
             <text fg={theme.textMuted}>v{Installation.VERSION}</text>
           </box>
