@@ -60,7 +60,7 @@ export const TuiThreadCommand = cmd({
     const defaultWorker = new URL("./worker.ts", import.meta.url)
     // Nix build creates a bundled worker next to the binary; prefer it when present.
     const execDir = path.dirname(process.execPath)
-    const bundledWorker = path.join(execDir, "opencode-worker.js")
+    const bundledWorker = path.join(execDir, "as-agent-worker.js")
     const hasBundledWorker = await Bun.file(bundledWorker).exists()
     const workerPath = (() => {
       if (typeof ASAGENT_WORKER_PATH !== "undefined") return ASAGENT_WORKER_PATH

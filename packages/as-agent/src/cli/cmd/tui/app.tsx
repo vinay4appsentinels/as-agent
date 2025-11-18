@@ -279,7 +279,7 @@ function App() {
     {
       title: "View status",
       keybind: "status_view",
-      value: "opencode.status",
+      value: "as-agent.status",
       onSelect: () => {
         dialog.replace(() => <DialogStatus />)
       },
@@ -342,7 +342,7 @@ function App() {
         DialogAlert.show(
           dialog,
           "Warning",
-          "While openrouter is a convenient way to access LLMs your request will often be routed to subpar providers that do not work well in our testing.\n\nFor reliable access to models check out OpenCode Zen\nhttps://opencode.ai/zen",
+          "While openrouter is a convenient way to access LLMs your request will often be routed to subpar providers that do not work well in our testing.\n\nFor reliable access to models check out AS-Agent Zen\nhttps://as-agent.ai/zen",
         ).then(() => kv.set("openrouter_warning", true))
       })
     }
@@ -475,7 +475,7 @@ function ErrorComponent(props: { error: Error; reset: () => void; onExit: () => 
   })
   const [copied, setCopied] = createSignal(false)
 
-  const issueURL = new URL("https://github.com/sst/opencode/issues/new?template=bug-report.yml")
+  const issueURL = new URL("https://github.com/vinay4appsentinels/as-agent/issues/new?template=bug-report.yml")
 
   if (props.error.message) {
     issueURL.searchParams.set("title", `opentui: fatal: ${props.error.message}`)
@@ -488,7 +488,7 @@ function ErrorComponent(props: { error: Error; reset: () => void; onExit: () => 
     )
   }
 
-  issueURL.searchParams.set("opencode-version", Installation.VERSION)
+  issueURL.searchParams.set("as-agent-version", Installation.VERSION)
 
   const copyIssueURL = () => {
     Clipboard.copy(issueURL.toString()).then(() => {
