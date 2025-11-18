@@ -82,10 +82,9 @@ function HelpRow(props: ParentProps<{ keybind: keyof KeybindsConfig }>) {
 }
 
 function MarkdownSection() {
-  const { theme } = useTheme()
+  const { theme, syntax } = useTheme()
   const [content, setContent] = createSignal("")
   const [show, setShow] = createSignal(false)
-  const renderer = useRenderer()
 
   onMount(async () => {
     try {
@@ -118,13 +117,13 @@ function MarkdownSection() {
           paddingRight={1}
         >
           <text fg={theme.text} attributes={{ bold: true }}>Project Guide</text>
-          <text fg={theme.textMuted}>ESC to close</text>
+          <text fg={theme.textMuted}>AGENTS.md</text>
         </box>
-        <box 
+        <scrollbox 
           backgroundColor={theme.backgroundPanel}
           borderStyle="round"
           borderColor={theme.border}
-          height={12}
+          height={10}
           width="100%"
           maxWidth={75}
         >
@@ -132,29 +131,12 @@ function MarkdownSection() {
             filetype="markdown"
             drawUnstyledText={false}
             streaming={false}
-            syntaxStyle={renderer.getPalette({
-              size: 16,
-            }).then((colors) => {
-              if (!colors.palette[0]) return
-              const bg = colors.defaultBackground ?? colors.palette[0]!
-              const fg = colors.defaultForeground ?? colors.palette[7]!
-              return {
-                "comment": { fg: bg, italic: true },
-                "keyword": { fg: fg, bold: true },
-                "string": { fg: fg },
-                "number": { fg: fg },
-                "function": { fg: fg },
-                "variable": { fg: fg },
-                "type": { fg: fg, bold: true },
-                "operator": { fg: fg },
-                "punctuation": { fg: fg },
-              }
-            })}
+            syntaxStyle={syntax()}
             content={content()}
             conceal={[]}
             fg={theme.text}
           />
-        </box>
+        </scrollbox>
       </box>
     </Show>
   )
