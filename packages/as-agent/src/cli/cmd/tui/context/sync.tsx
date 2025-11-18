@@ -12,7 +12,7 @@ import type {
   McpStatus,
   FormatterStatus,
   SessionStatus,
-} from "@opencode-ai/sdk"
+} from "@as-agent/sdk"
 import { createStore, produce, reconcile } from "solid-js/store"
 import { useSDK } from "@tui/context/sdk"
 import { Binary } from "@/util/binary"

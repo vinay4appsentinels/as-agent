@@ -7,7 +7,7 @@ import { bootstrap } from "../bootstrap"
 import { Command } from "../../command"
 import { EOL } from "os"
 import { select } from "@clack/prompts"
-import { createOpencodeClient, type OpencodeClient } from "@opencode-ai/sdk"
+import { createOpencodeClient, type OpencodeClient } from "@as-agent/sdk"
 import { Server } from "../../server/server"
 import { Provider } from "../../provider/provider"
 
